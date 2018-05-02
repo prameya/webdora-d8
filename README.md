@@ -1,6 +1,5 @@
 # Deploying Drupal 8 on Google App Engine and Cloud SQL
 THIS README IS NOT COMPLETE.
-![alt text](https://raw.githubusercontent.com/prameya/webdora-d8/master/webdora.png "Webdora Logo")
 
 More information/description about this project should be inserted here.
 
