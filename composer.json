@@ -1,0 +1,55 @@
+{
+    "name": "prameya/webdora-d8",
+    "description": "Deploying Drupal 8 on Google App Engine Flex (PHP 7.2.x) with Cloud SQL using composer.",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Prameya Bhandari",
+            "email": "prameya@gmail.com",
+            "role": "Owner"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "ext-gd": "*",
+        "composer/installers": "^1.5",
+        "cweagans/composer-patches": "^1.6",
+        "drupal/core": "^8.5",
+        "drush/drush": "^9.2",
+        "drupal/console": "^1.8",
+        "drupal-composer/drupal-scaffold": "^2.4",
+        "vlucas/phpdotenv": "^2.4",
+        "webflo/drupal-finder": "^1.1",
+        "webmozart/path-util": "^2.3"
+    },
+    "require-dev": {
+        
+        "webflo/drupal-core-require-dev": "^8.5",
+        "google/cloud-tools": "dev-master"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        }
+    ],
+    "extra": {
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/contrib/{$name}": ["type:drupal-drush"]
+        }
+    }
+}
