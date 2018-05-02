@@ -32,13 +32,43 @@ https://your-project-name.appspot.com
 
 THIS SECTION IS NOT COMPLETE.
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+You should have a web server (probably apache) installed and configured on your dev environment. If you do not already have necessary components installed use the steps below or follow the instractions at -- `https://getgrav.org/blog/macos-sierra-apache-multiple-php-versions`.
 
-Go to https://github.com/drupal-composer/drupal-project and download the default `composer.json` file.
+#### Install XCode CLI tools
+`xcode-select --install`
 
-We will use this to create our app and deploy it to google app engine
+#### Install Homebrew
+`ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
-In an empty folder down the `composer.json`. We will be initializing our project here.
+To make sure brew installed use `brew --version`. To be safe, let's run `brew doctor`.
+
+#### Install Apache
+`brew install httpd`
+
+To autoload apache on boot use `sudo brew services start httpd`
+
+Use the following commands as needed:
+
+```
+sudo apachectl start
+sudo apachectl stop
+sudo apachectl -k restart
+```
+#### Install PHP
+`brew install php@7.2`
+
+#### Configure Apache for PHP
+Edit the apache config file at `/usr/local/etc/httpd/httpd.conf` with your settings. See the guide linked on the top of this section for detailed setup guide. We also need to enable some modules. `LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so`.
+
+#### Install Google Cloud SDK and tools
+Make sure we have python 2.7 installed `python -V`. We will use homebrew to install GCP SDK `brew cask reinstall google-cloud-sdk`. 
+
+#### Brew update and clean up
+```
+brew update
+brew upgrade
+```
+THIS SECTION IS NOT COMPLETE.
 
 ## Usage
 
