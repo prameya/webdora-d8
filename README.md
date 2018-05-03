@@ -1,21 +1,28 @@
 # Deploying Drupal 8 on Google App Engine and Cloud SQL
-Introduction and summary information should be included here. More information/description about this project should be inserted here.
+
+Introduction and summary information should be included here. 
+
+More information/description about this project should be inserted here.
+
 THIS README IS NOT COMPLETE.
 ---
 
 ### Assumptions
+
 ```
 This project assumes you are using a Mac OS X system with root/admin privileges.
 ```
+
 ### Notes
-** Uploading files on your app: **
+
+**Uploading files on your app:**
+`Use your Cloud SQL instance settings during the installation. That way, when you deploy your app it is already up and running!`
+
+**Using Cloud SQL:**
 `Google App Engine does NOT allow writes to the local filesystem. You will need to configure Cloud Storage or other storage option to be able to upload files on your app.`
 
-** Using Cloud SQL:** 
-`Use your Cloud SQL instance settings during the installation. That way, when you deploy your app it is already up and running!`
----
-
 ## Quick start
+
 The fastest way to get started is to clone this repository and use `composer create-project`. Use `git clone https://github.com/prameya/webdora-d8.git` or `git clone git@github.com:prameya/webdora-d8.git` to clone this repository on your dev environment.
 
 Next you will initialize and install the application using composer. Run the steps below to create your project files and make sure everything is "synced and linked"!
@@ -46,6 +53,7 @@ https://your-project-name.appspot.com/
 ---
 
 ## Prerequisites
+
 You should have a web server (probably apache) running php 7.2 that has been configured to use this project's public folder as the document root. I used `/<my-file-path>/webdora-d8/web` for this project. If you do not already have necessary components installed use the steps below or follow the detailed instructions on [Andy Miller's blog](https://getgrav.org/blog/macos-sierra-apache-multiple-php-versions, "Andy Miller's blog post").
 
 You should also have a database server running MySQL or MariaDB on a network your web server can access. If you are using Google Cloud SQL for your database, make sure you have configured your service accounts with proper permissions, roles, and keys.
@@ -53,14 +61,17 @@ You should also have a database server running MySQL or MariaDB on a network you
 You can temporarily add your IP to the `Authorized networks` by going to `Cloud SQL > Instance Details > Edit` on [Google Cloud Console](https://console.cloud.google.com/, "Google Cloud Console"). You can find the official Google documentation [here](https://cloud.google.com/sql/docs/mysql/connect-external-app/, "Google Cloud SQL documentation").
 
 ### Install XCode CLI tools
+
 `xcode-select --install`
 
 ### Install Homebrew
+
 `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
 To make sure brew was installed use `brew --version`. To be safe, let's run `brew doctor`.
 
 ### Install Apache
+
 `brew install httpd`
 
 To automatically load apache on boot use `sudo brew services start httpd`.
@@ -72,25 +83,32 @@ sudo apachectl start
 sudo apachectl stop
 sudo apachectl -k restart
 ```
+
 ### Install PHP
+
 `brew install php@7.2`
 
 ### Configure Apache for PHP
+
 Edit the apache config file at `/usr/local/etc/httpd/httpd.conf` with your settings. See the guide linked on the top of this section for detailed setup guide. You also need to enable some modules. Uncomment the line `LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so` to enable `mod_rewrite`.
 
 ### Install Google Cloud SDK
+
 Make sure you have python 2.7 installed. Use `python -V` to check.
 
 We will use homebrew to install GCP SDK `brew cask install google-cloud-sdk`.
 
 ### Brew update and clean up
+
 ```
 brew update
 brew upgrade
 ```
+
 THIS SECTION IS NOT COMPLETE.
 
 ## How I did it
+
 Below I will outline how I created this project. I will cite sources and document my process for anyone that might be interested.
 
 THIS SECTION IS NOT COMPLETE.
