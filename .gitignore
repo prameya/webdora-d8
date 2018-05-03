@@ -28,7 +28,8 @@
 ##############################
 
 # Ignore app.yaml (for GCP) files as they are personal
-app.yaml
+# uncomment the line below for your project
+# app.yaml
 
 # Ignore dev/config files
 composer.phar
