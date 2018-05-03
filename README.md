@@ -165,7 +165,7 @@ Then:
 composer update -v
 ```
 
-Now you should have a Drupal install showing up on [http://localhost/](http://localhost/, "localhost") (depending on your configuration and setup).
+Now you should have a Drupal install showing up on [http://localhost/](http://localhost/, "localhost") (depending on your configuration).
 
 ## Deployment notes
 
