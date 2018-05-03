@@ -4,7 +4,9 @@ THIS README IS NOT COMPLETE.
 More information/description about this project should be inserted here.
 
 #### Assumptions
-```This project assumes you are using a Mac OS X system, with root/admin privilages.```
+```
+This project assumes you are using a Mac OS X system, with root/admin privilages.
+```
 
 ## Quickstart
 The easiest way to get started is to use `composer create-project`. You should have a web server preconfigured to use our project `webdora-d8/web` folder as the document root.
