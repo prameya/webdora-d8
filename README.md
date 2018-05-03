@@ -23,7 +23,7 @@ composer update -v
 ```
 If everything is configured properly then you should see the Drupal 8 installation page on http://localhost. Follow instructions on the screen to finish setting up drupal.
 
-Now we are finally ready to deploy our app.
+Now we are finally ready to deploy our app. Check the `app.yaml` file to see the App Engine settings.
 
 ```
 gcloud app deploy --verbosity=info
