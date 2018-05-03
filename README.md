@@ -6,8 +6,7 @@ Introduction and summary information should be included here. More information/d
 This project assumes you are using a Mac OS X system with root/admin privileges.
 ```
 
-### Notes
-
+### Note:
 **Uploading files on your app:**
 > Use your Cloud SQL instance settings during the installation. That way, when you deploy your app it is already up and running!
 
@@ -22,7 +21,7 @@ The fastest way to get started is to clone this repository and use `composer cre
 
 Next you will initialize and install the application using composer. Run the steps below to create your project files and make sure everything is "synced and linked"!
 
-```console
+```sh
 composer create-project
 composer install -v
 composer update -v
@@ -34,7 +33,7 @@ If everything is configured properly, you should see the Drupal 8 installation p
 
 With Drupal 8 up and running on your localdev/web server, you are finally ready to deploy the app. Check the `app.yaml` file to see the Google App Engine settings. Then run the command below to deploy your app. Adding `--verbosity=info` allows you to see the deployment process details.
 
-```console
+```sh
 gcloud app deploy --verbosity=info
 ```
 
@@ -52,13 +51,13 @@ You can temporarily add your IP to the `Authorized networks` by going to `Cloud 
 
 ### Install XCode CLI tools
 
-```console
+```sh
 xcode-select --install
 ```
 
 ### Install Homebrew
 
-```console
+```sh
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
@@ -66,19 +65,19 @@ To make sure brew was installed use `brew --version`. To be safe, let's run `bre
 
 ### Install Apache
 
-```console
+```sh
 brew install httpd
 ```
 
 To automatically load apache on boot use:
 
-```console
+```sh
 sudo brew services start httpd
 ```
 
 Use the following commands as needed:
 
-```console
+```sh
 sudo apachectl start
 sudo apachectl stop
 sudo apachectl -k restart
@@ -86,7 +85,7 @@ sudo apachectl -k restart
 
 ### Install PHP
 
-```console
+```sh
 brew install php@7.2
 ```
 
@@ -100,13 +99,13 @@ Make sure you have python 2.7 installed. Use `python -V` to check.
 
 We will use homebrew to install GCP SDK:
 
-```console
+```sh
 brew cask install google-cloud-sdk
 ```
 
 ### Brew update and clean up
 
-```console
+```sh
 brew update
 brew upgrade
 ```
@@ -127,7 +126,7 @@ We will use this to create our app and deploy it to google app engine
 
 In your project's root folder place the `composer.json`. We will be initializing our project here.
 
-```console
+```sh
 git init
 ```
 
@@ -136,22 +135,21 @@ Edit the `composer.json` file to make it suitable for our use. We are not going 
 Notice the changes we made. We added `php7.2.x` and `ext-gd` the `gd` module is still finicky on the app engine, so instead of using a set version, we will allow `gcloud` to figure it out by using the wildcard `“*”` for the version.
 
 Then you do:
-
-```console
+```sh
 composer create-project
 ```
 
 Then do:
-```console
+```sh
 composer install -v
 ```
 
 Then:
-```
+```sh
 composer update -v
 ```
 
-Now you should have a Drupal install showing up on `[http://localhost](http://localhost, "localhost")` (depending on your configuration and setup).
+Now you should have a Drupal install showing up on [http://localhost/](http://localhost/, "localhost") (depending on your configuration and setup).
 
 ## Deployment notes
 
