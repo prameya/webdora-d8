@@ -1,49 +1,60 @@
 # Deploying Drupal 8 on Google App Engine and Cloud SQL
+
+Introduction and summary information should be included here. More information/description about this project should be inserted here.
+
 THIS README IS NOT COMPLETE.
 
-Introduction and summary information should be included here.
-
-More information/description about this project should be inserted here.
-
-#### Assumptions
+### Assumptions
 
 ```
 This project assumes you are using a Mac OS X system with root/admin privileges.
 ```
 
 ## Quick start
-The fastest way to get started is to clone this repository and use `composer create-project`. You should have a web server (probably apache) running php 7.2 that has been configured to use this project's public folder as the document root. I used `/<my-file-path>/webdora-d8/web` for this project.
 
-You should also have a database server running MySQL or MariaDB on a network your web server can access. If you are using Google Cloud SQL for your database, make sure you have configured your service accounts with proper permissions, roles, and keys. You can temporarily add your IP to the `Authorized networks` by going to `Cloud SQL > Instance Details > Edit` on [Google Cloud Console](https://console.cloud.google.com/ "Google Cloud Console"). You can find the official Google documentation [here](https://cloud.google.com/sql/docs/mysql/connect-external-app "Cloud SQL documentation").
+The fastest way to get started is to clone this repository and use `composer create-project`. Use `git clone https://github.com/prameya/webdora-d8.git` or `git clone git@github.com:prameya/webdora-d8.git` to clone this repository on your dev environment.
 
-Use `git clone https://github.com/prameya/webdora-d8.git` or `git clone git@github.com:prameya/webdora-d8.git` to clone this repository on your dev environment.
-
-Next you will initialize and install the application using composer. Run the steps below make sure everything is synced and linked!
+Next you will initialize and install the application using composer. Run the steps below to create your project files and make sure everything is "synced and linked"!
 
 ```
+composer create-project
 composer install -v
 composer update -v
 ```
 
-If everything is configured properly, you should see the Drupal 8 installation page on http://localhost. Follow instructions on the screen to finish setting up Drupal. Use your Cloud SQL settings for the install so when we deploy our app, it is already working with a database.
+If everything is configured properly, you should see the Drupal 8 installation page on your local web server. Follow on screen instructions to finish installing Drupal.
 
-Now we are finally ready to deploy our app. Check the `app.yaml` file to see the Google App Engine settings.
+```
+http://localhost/
+```
+
+With Drupal 8 up and running on your localdev/web server, you are finally ready to deploy the app. Check the `app.yaml` file to see the Google App Engine settings. Then run the command below to deploy your app. Adding `--verbosity=info` allows you to see the deployment process details.
 
 ```
 gcloud app deploy --verbosity=info
 ```
 
-After deployment you can access your new Drupal App Engine app at:
+After deployment, browse your shiny new Drupal App Engine app at:
 
 ```
-https://your-project-name.appspot.com
+https://your-project-name.appspot.com/
 ```
+---
+### Notes
+
+** Uploading files on your app: **
+`Google App Engine does NOT allow writes to the local filesystem. You will need to configure Cloud Storage or other storage option to be able to upload files on your app.`
+
+** Using Cloud SQL: **
+`Use your Cloud SQL instance settings during the installation. That way, when you deploy your app it is already up and running!`
 
 ## Prerequisites
 
-THIS SECTION IS NOT COMPLETE.
+You should have a web server (probably apache) running php 7.2 that has been configured to use this project's public folder as the document root. I used `/<my-file-path>/webdora-d8/web` for this project. If you do not already have necessary components installed use the steps below or follow the detailed instructions at -- `https://getgrav.org/blog/macos-sierra-apache-multiple-php-versions`.
 
-You should have a web server installed and configured on your dev environment. If you do not already have necessary components installed use the steps below or follow the detailed instructions at -- `https://getgrav.org/blog/macos-sierra-apache-multiple-php-versions`.
+You should also have a database server running MySQL or MariaDB on a network your web server can access. If you are using Google Cloud SQL for your database, make sure you have configured your service accounts with proper permissions, roles, and keys.
+
+You can temporarily add your IP to the `Authorized networks` by going to `Cloud SQL > Instance Details > Edit` on [Google Cloud Console](https://console.cloud.google.com/, "Google Cloud Console"). You can find the official Google documentation [here](https://cloud.google.com/sql/docs/mysql/connect-external-app/, "Google Cloud SQL documentation").
 
 ### Install XCode CLI tools
 `xcode-select --install`
@@ -74,7 +85,7 @@ Edit the apache config file at `/usr/local/etc/httpd/httpd.conf` with your setti
 ### Install Google Cloud SDK
 Make sure you have python 2.7 installed. Use `python -V` to check.
 
-We will use homebrew to install GCP SDK `brew cask reinstall google-cloud-sdk`.
+We will use homebrew to install GCP SDK `brew cask install google-cloud-sdk`.
 
 ### Brew update and clean up
 ```
@@ -83,9 +94,11 @@ brew upgrade
 ```
 THIS SECTION IS NOT COMPLETE.
 
-## How I did it.
+## How I did it
 
 Below I will outline how I created this project. I will cite sources and document my process for anyone that might be interested.
+
+THIS SECTION IS NOT COMPLETE.
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment notes on how to deploy the project on a live system.
 
@@ -110,4 +123,7 @@ Then `composer update -v`
 Now you should have a Drupal install showing up on `http://localhost` (depending on your configuration and setup).
 
 ## Deployment notes
+
+```
 This project is NOT deployment ready. Currently under active development.
+```
