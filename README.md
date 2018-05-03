@@ -1,43 +1,52 @@
 # Deploying Drupal 8 on Google App Engine and Cloud SQL
-Introduction and summary information should be included here. More information/description about this project should be inserted here. 
+Introduction and summary information should be included here. More information/description about this project should be inserted here.
 THIS README IS NOT COMPLETE.
+---
 
 ### Assumptions
 ```
 This project assumes you are using a Mac OS X system with root/admin privileges.
 ```
+### Notes
+** Uploading files on your app: **
+`Google App Engine does NOT allow writes to the local filesystem. You will need to configure Cloud Storage or other storage option to be able to upload files on your app.`
+
+** Using Cloud SQL:** 
+`Use your Cloud SQL instance settings during the installation. That way, when you deploy your app it is already up and running!`
+---
 
 ## Quick start
 The fastest way to get started is to clone this repository and use `composer create-project`. Use `git clone https://github.com/prameya/webdora-d8.git` or `git clone git@github.com:prameya/webdora-d8.git` to clone this repository on your dev environment.
 
 Next you will initialize and install the application using composer. Run the steps below to create your project files and make sure everything is "synced and linked"!
+
 ```
 composer create-project
 composer install -v
 composer update -v
 ```
-If everything is configured properly, you should see the Drupal 8 installation page on your local web server. Follow on screen instructions to finish installing Drupal.
+
+If everything is configured properly, you should see the Drupal 8 installation page on your local web server. Follow on screen instructions to finish installing Drupal:
+
 ```
 http://localhost/
 ```
+
 With Drupal 8 up and running on your localdev/web server, you are finally ready to deploy the app. Check the `app.yaml` file to see the Google App Engine settings. Then run the command below to deploy your app. Adding `--verbosity=info` allows you to see the deployment process details.
+
 ```
 gcloud app deploy --verbosity=info
 ```
+
 After deployment, browse your shiny new Drupal App Engine app at:
+
 ```
 https://your-project-name.appspot.com/
 ```
 ---
-### Notes
-** Uploading files on your app: **
-`Google App Engine does NOT allow writes to the local filesystem. You will need to configure Cloud Storage or other storage option to be able to upload files on your app.`
-
-** Using Cloud SQL: **
-`Use your Cloud SQL instance settings during the installation. That way, when you deploy your app it is already up and running!`
 
 ## Prerequisites
-You should have a web server (probably apache) running php 7.2 that has been configured to use this project's public folder as the document root. I used `/<my-file-path>/webdora-d8/web` for this project. If you do not already have necessary components installed use the steps below or follow the detailed instructions at -- `https://getgrav.org/blog/macos-sierra-apache-multiple-php-versions`.
+You should have a web server (probably apache) running php 7.2 that has been configured to use this project's public folder as the document root. I used `/<my-file-path>/webdora-d8/web` for this project. If you do not already have necessary components installed use the steps below or follow the detailed instructions on [Andy Miller's blog](https://getgrav.org/blog/macos-sierra-apache-multiple-php-versions, "Andy Miller's blog post").
 
 You should also have a database server running MySQL or MariaDB on a network your web server can access. If you are using Google Cloud SQL for your database, make sure you have configured your service accounts with proper permissions, roles, and keys.
 
@@ -49,12 +58,12 @@ You can temporarily add your IP to the `Authorized networks` by going to `Cloud 
 ### Install Homebrew
 `ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
 
-To make sure brew installed use `brew --version`. To be safe, let's run `brew doctor`.
+To make sure brew was installed use `brew --version`. To be safe, let's run `brew doctor`.
 
 ### Install Apache
 `brew install httpd`
 
-To automatically load apache on boot use `sudo brew services start httpd`
+To automatically load apache on boot use `sudo brew services start httpd`.
 
 Use the following commands as needed:
 
@@ -88,11 +97,11 @@ THIS SECTION IS NOT COMPLETE.
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment notes on how to deploy the project on a live system.
 
-Go to `https://github.com/drupal-composer/drupal-project` and download the default `composer.json` file.
+Go to `[https://github.com/drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project, "Drupal composer on github")` and download the default `composer.json` file.
 
 We will use this to create our app and deploy it to google app engine
 
-In an empty folder down the `composer.json`. We will be initializing our project here.
+In your project's root folder place the `composer.json`. We will be initializing our project here.
 
 `git init`
 
