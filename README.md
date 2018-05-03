@@ -1,5 +1,5 @@
 # Deploying Drupal 8 on Google App Engine and Cloud SQL
-Introduction and summary information should be included here. More information/description about this project should be inserted here. THIS README IS NOT COMPLETE.
+Introduction and summary information should be included here. More information/description about this project should be inserted here. THIS README IS NOT COMPLETE. 
 
 ### Assumptions
 ```
@@ -47,7 +47,7 @@ composer update -v
 
 If everything is configured properly, you should see the Drupal 8 installation page on your local web server. Follow on screen instructions to finish installing Drupal:
 
-> [http://localhost/](http://localhost/, "localhost")
+> [http://localhost/](http://localhost/ "localhost")
 
 With Drupal 8 up and running on your localdev/web server, you are finally ready to deploy the app. Check the `app.yaml` file to see the Google App Engine settings. Then run the command below to deploy your app. Adding `--verbosity=info` allows you to see the deployment process details.
 
@@ -57,15 +57,15 @@ gcloud app deploy --verbosity=info
 
 After deployment, browse your shiny new Drupal App Engine app at:
 
-> [https://your-project-name.appspot.com/](https://your-project-name.appspot.com/, "your-project-name.appspot.com")
+> [https://your-project-name.appspot.com/](https://your-project-name.appspot.com/ "your-project-name.appspot.com")
 
 ## Prerequisites
 
-You should have a web server (probably apache) running php 7.2 that has been configured to use this project's public folder as the document root. I used `/<my-file-path>/webdora-d8/web` for this project. If you do not already have necessary components installed use the steps below or follow the detailed instructions on [Andy Miller's blog](https://getgrav.org/blog/macos-sierra-apache-multiple-php-versions, "Andy Miller's blog post").
+You should have a web server (probably apache) running php 7.2 that has been configured to use this project's public folder as the document root. I used `/<my-file-path>/webdora-d8/web` for this project. If you do not already have necessary components installed use the steps below or follow the detailed instructions on [Andy Miller's blog](https://getgrav.org/blog/macos-sierra-apache-multiple-php-versions "Andy Miller's blog post").
 
 You should also have a database server running MySQL or MariaDB on a network your web server can access. If you are using Google Cloud SQL for your database, make sure you have configured your service accounts with proper permissions, roles, and keys.
 
-You can temporarily add your IP to the `Authorized networks` by going to `Cloud SQL > Instance Details > Edit` on [Google Cloud Console](https://console.cloud.google.com/, "Google Cloud Console"). You can find the official Google documentation [here](https://cloud.google.com/sql/docs/mysql/connect-external-app/, "Google Cloud SQL documentation").
+You can temporarily add your IP to the `Authorized networks` by going to `Cloud SQL > Instance Details > Edit` on [Google Cloud Console](https://console.cloud.google.com/ "Google Cloud Console"). You can find the official Google documentation [here](https://cloud.google.com/sql/docs/mysql/connect-external-app/ "Google Cloud SQL documentation").
 
 ### Install XCode CLI tools
 
@@ -138,7 +138,7 @@ THIS SECTION IS NOT COMPLETE.
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment notes on how to deploy the project on a live system.
 
-Go to [https://github.com/drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project, "Drupal composer on github") and download the default `composer.json` file.
+Go to [https://github.com/drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project "Drupal composer on github") and download the default `composer.json` file.
 
 We will study this file to create our app and deploy it to google app engine. In your project's root folder place the `composer.json`. We will be initializing our project here.
 
@@ -146,7 +146,7 @@ We will study this file to create our app and deploy it to google app engine. In
 git init
 ```
 
-Edit the `composer.json` file to make it suitable for our use. We are not going to need multiple sites or local .env file configuration for this tutorial.
+Edit the `composer.json` file to make it suitable for our use. We are not going to need multiple sites or local `.env` file configuration for this tutorial.
 
 Notice the changes we made. We added `php7.2.x` and `ext-gd` the `gd` module is still finicky on the app engine, so instead of using a set version, we will allow `gcloud` to figure it out by using the wildcard `“*”` for the version.
 
@@ -165,10 +165,24 @@ Then:
 composer update -v
 ```
 
-Now you should have a Drupal install showing up on [http://localhost/](http://localhost/, "localhost") (depending on your configuration).
+Now you should have a Drupal install showing up on [http://localhost/](http://localhost/ "localhost") (depending on your configuration).
 
 ## Deployment notes
 
 ```
 This project is NOT deployment ready. Currently under active development.
 ```
+## Credits
+
+I used `drupal-composer/drupal-project` as basis. Relevant files were modified to enable composer install and deployement to Google App Engine.
+
+**Some resources I used:**
+
+* https://github.com/prameya/drupal-project
+* https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
+* https://getgrav.org/blog/macos-sierra-apache-multiple-php-versions
+* https://cloud.google.com/appengine/docs/flexible/php/configuring-your-app-with-app-yaml
+* https://github.com/GoogleCloudPlatform/php-docs-samples/tree/master/appengine/flexible/drupal8
+* https://cloud.google.com/sql/docs/mysql/connect-external-app/
+* http://blog.boombatower.com/drupal-google-app-engine
+* https://www.rainbowbreeze.it/how-to-setup-a-google-app-engine-python-environment-on-mac-osx-using-homebrew/
