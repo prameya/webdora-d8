@@ -14,7 +14,7 @@ This project assumes you are using a Mac OS X system with root/admin privileges.
 > Google App Engine does NOT allow writes to the local filesystem. You will need to configure Cloud Storage or other storage option to be able to upload files on your app.
 
 **Extending Drupal:**
-> It is highly recommended that you use composer to extend drupal (with modules, themes, libraries etc.) Follow the syntax patterns below to install, uninstall, or update extensions for your new d8 site:
+> It is highly recommended that you use composer to extend Drupal (with modules, themes, libraries etc.) Follow the syntax patterns below to install, uninstall, or update extensions for your new d8 site:
 
 ```sh
 composer require drupal/<module-name>
@@ -165,7 +165,7 @@ Then:
 composer update -v
 ```
 
-Now you should have a Drupal install showing up on [http://localhost/](http://localhost/, "localhost") (depending on your configuration and setup).
+Now you should have a Drupal install showing up on [http://localhost/](http://localhost/, "localhost") (depending on your configuration).
 
 ## Deployment notes
 
