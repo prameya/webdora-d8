@@ -13,11 +13,29 @@ This project assumes you are using a Mac OS X system with root/admin privileges.
 **Using Cloud SQL:**
 > Google App Engine does NOT allow writes to the local filesystem. You will need to configure Cloud Storage or other storage option to be able to upload files on your app.
 
+**Extending Drupal:**
+> It is highly recommended that you use composer to extend drupal (with modules, themes, libraries etc.) Follow the syntax patterns below to install, uninstall, or update extensions for your new d8 site:
+
+```sh
+composer require drupal/<module-name>
+composer remove drupal/<module-name>
+
+composer require drupal/bootstrap
+composer remove drupal/bootstrap
+
+composer update -v
+```
+
+
 ---
 
 ## Quick start
 
-The fastest way to get started is to clone this repository and use `composer create-project`. Use `git clone https://github.com/prameya/webdora-d8.git` or `git clone git@github.com:prameya/webdora-d8.git` to clone this repository on your dev environment.
+The fastest way to get started is to clone this repository and use composer to build your app. Let's clone:
+
+```sh
+git clone git@github.com:prameya/webdora-d8.git
+```
 
 Next you will initialize and install the application using composer. Run the steps below to create your project files and make sure everything is "synced and linked"!
 
@@ -39,7 +57,7 @@ gcloud app deploy --verbosity=info
 
 After deployment, browse your shiny new Drupal App Engine app at:
 
-> [https://your-project-name.appspot.com](https://your-project-name.appspot.com, "your-project-name.appspot.com")
+> [https://your-project-name.appspot.com/](https://your-project-name.appspot.com/, "your-project-name.appspot.com")
 
 ## Prerequisites
 
@@ -69,13 +87,13 @@ To make sure brew was installed use `brew --version`. To be safe, let's run `bre
 brew install httpd
 ```
 
-To automatically load apache on boot use:
+#### To automatically load apache on boot use:
 
 ```sh
 sudo brew services start httpd
 ```
 
-Use the following commands as needed:
+#### Use the following commands as needed:
 
 ```sh
 sudo apachectl start
