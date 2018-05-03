@@ -1,0 +1,49 @@
+# For app webdora-d8
+runtime: php
+env: flex
+threadsafe: true
+
+runtime_config:
+  document_root: web
+  front_controller_file: index.php
+
+# GCE App Engine settings
+automatic_scaling:
+  min_num_instances: 1
+  max_num_instances: 4
+  cpu_utilization:
+    target_utilization: 0.6
+
+# Cloud SQL connection name
+# this is here for future use, app isn't using these yet
+beta_settings:
+  cloud_sql_instances: project-name:zone-info:database-name
+
+# Get values from your Cloud SQL instance
+# this is here for future use, app isn't using these yet
+env_variables:
+  MYSQL_DATABASE: database-name
+  MYSQL_DRIVER: mysql
+  MYSQL_SOCKET: /cloudsql/project-name:zone-info:database-name
+  MYSQL_NAMESPACE: Drupal\\Core\\Database\\Driver\\mysql
+  MYSQL_PASSWORD: yourpassword
+  MYSQL_PORT: 3306
+  MYSQL_USER: database-user
+  MYSQL_HOST: your-db-host-or-ip
+  MYSQL_DSN: mysql:dbname=database-name;unix_socket=/cloudsql/project-name:zone-info:database-name    
+
+# skip internal files (logs,OS,etc)
+skip_files:
+- logs/
+- ^README\..*
+- ^\.git/.*
+- ^\.gitignore
+- ^(.*/)?#.*#$
+- ^(.*/)?.*~$
+- ^(.*/)?.*\.py[co]$
+- ^(.*/)?.*/RCS/.*$
+- ^(.*/)?\..*$
+- (?!^.htaccess)
+- ^(.*/)?.*\.bak$
+- ^(.*/)?.*\.tmp$
+- ^(.*/)?.*\.DS_Store$
