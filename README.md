@@ -138,11 +138,9 @@ THIS SECTION IS NOT COMPLETE.
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment notes on how to deploy the project on a live system.
 
-Go to `[https://github.com/drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project, "Drupal composer on github")` and download the default `composer.json` file.
+Go to [https://github.com/drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project, "Drupal composer on github") and download the default `composer.json` file.
 
-We will use this to create our app and deploy it to google app engine
-
-In your project's root folder place the `composer.json`. We will be initializing our project here.
+We will study this file to create our app and deploy it to google app engine. In your project's root folder place the `composer.json`. We will be initializing our project here.
 
 ```sh
 git init
