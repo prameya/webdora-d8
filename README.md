@@ -174,15 +174,15 @@ This project is NOT deployment ready. Currently under active development.
 ```
 ## Credits
 
-I used `drupal-composer/drupal-project` as basis. Relevant files were modified to enable composer install and deployement to Google App Engine.
+I used `drupal-composer/drupal-project` as basis. Relevant files were modified to enable composer install and deployement to Google App Engine Flex.
 
 **Some resources I used:**
 
 * https://github.com/prameya/drupal-project
+* http://blog.boombatower.com/drupal-google-app-engine
+* https://cloud.google.com/sql/docs/mysql/connect-external-app/
 * https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 * https://getgrav.org/blog/macos-sierra-apache-multiple-php-versions
 * https://cloud.google.com/appengine/docs/flexible/php/configuring-your-app-with-app-yaml
 * https://github.com/GoogleCloudPlatform/php-docs-samples/tree/master/appengine/flexible/drupal8
-* https://cloud.google.com/sql/docs/mysql/connect-external-app/
-* http://blog.boombatower.com/drupal-google-app-engine
 * https://www.rainbowbreeze.it/how-to-setup-a-google-app-engine-python-environment-on-mac-osx-using-homebrew/
