@@ -1,5 +1,5 @@
-# Deploying Drupal 8 on Google App Engine and Cloud SQL
-Introduction and summary information should be included here. More information/description about this project should be inserted here. THIS README IS NOT COMPLETE. 
+# Deploying Drupal 8 on Google App Engine Flex and Cloud SQL
+Introduction and summary information should be included here. More description about this project should be inserted here. THIS README IS NOT COMPLETE. 
 
 ### Assumptions
 ```
@@ -7,11 +7,11 @@ This project assumes you are using a Mac OS X system with root/admin privileges.
 ```
 
 ### Note:
-**Uploading files on your app:**
-> Use your Cloud SQL instance settings during the installation. That way, when you deploy your app it is already up and running!
+**Uploading files:**
+> Google App Engine does NOT allow writes to the local filesystem. You will need to configure Cloud Storage or other storage option to be able to upload files on your app.
 
 **Using Cloud SQL:**
-> Google App Engine does NOT allow writes to the local filesystem. You will need to configure Cloud Storage or other storage option to be able to upload files on your app.
+> Use your Cloud SQL instance settings during the installation. That way, when you deploy your app it is already up and running!
 
 **Extending Drupal:**
 > It is highly recommended that you use composer to extend Drupal (with modules, themes, libraries etc.) Follow the syntax patterns below to install, uninstall, or update extensions for your new d8 site:
@@ -31,13 +31,13 @@ composer update -v
 
 ## Quick start
 
-The fastest way to get started is to clone this repository and use composer to build your app. Let's clone:
+The fastest way to get started is to clone this repository and use composer to build your app. Let's clone!
 
 ```sh
 git clone git@github.com:prameya/webdora-d8.git
 ```
 
-Next you will initialize and install the application using composer. Run the steps below to create your project files and make sure everything is "synced and linked"!
+Next you will initialize and install the application using composer. Run the steps below to create your project files and make sure everything is synced and linked.
 
 ```sh
 composer create-project
@@ -49,7 +49,7 @@ If everything is configured properly, you should see the Drupal 8 installation p
 
 > [http://localhost/](http://localhost/ "localhost")
 
-With Drupal 8 up and running on your localdev/web server, you are finally ready to deploy the app. Check the `app.yaml` file to see the Google App Engine settings. Then run the command below to deploy your app. Adding `--verbosity=info` allows you to see the deployment process details.
+With Drupal 8 up and running on your localdev/web server, you are finally ready to deploy the app. Check the `app.yaml` file to see the Google App Engine settings. Then use the `gcloud app deploy` command to deploy your app. Adding `--verbosity=info` allows you to see the deployment process details.
 
 ```sh
 gcloud app deploy --verbosity=info
