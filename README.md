@@ -138,17 +138,17 @@ THIS SECTION IS NOT COMPLETE.
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment notes on how to deploy the project on a live system.
 
-Go to [https://github.com/drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project "Drupal composer on github") and download the default `composer.json` file.
+Go to [https://github.com/drupal-composer/drupal-project](https://github.com/drupal-composer/drupal-project "Drupal composer on github") and download the default `composer.json` file. In a seperate location download this project's `composer.json` [file](https://github.com/prameya/webdora-d8/blob/master/composer.json).
 
-We will study this file to create our app and deploy it to google app engine. In your project's root folder place the `composer.json`. We will be initializing our project here.
+We will study this file to create our app and deploy it to Google App Engine. In your project's root folder place the `composer.json`. We will be initializing our project here.
 
 ```sh
 git init
 ```
 
-Edit the `composer.json` file to make it suitable for our use. We are not going to need multiple sites or local `.env` file configuration for this tutorial.
+Edit the default `composer.json` file to make it suitable for our use. We are not going to need multiple sites or local `.env` file configuration for this tutorial. So those parts should be removed.
 
-Notice the changes we made. We added `php7.2.x` and `ext-gd` the `gd` module is still finicky on the app engine, so instead of using a set version, we will allow `gcloud` to figure it out by using the wildcard `“*”` for the version.
+Notice the changes made on the second `composer.json`. We added `php7.2.x` and `ext-gd`. The `gd` module is still finicky on the app engine, so instead of using a set version, we will allow `gcloud` to figure it out by using wildcard `“*”` for the version.
 
 Then you do:
 ```sh
@@ -181,8 +181,8 @@ I used `drupal-composer/drupal-project` as basis. Relevant files were modified t
 * https://github.com/prameya/drupal-project
 * http://blog.boombatower.com/drupal-google-app-engine
 * https://cloud.google.com/sql/docs/mysql/connect-external-app/
-* https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 * https://getgrav.org/blog/macos-sierra-apache-multiple-php-versions
+* https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet
 * https://cloud.google.com/appengine/docs/flexible/php/configuring-your-app-with-app-yaml
 * https://github.com/GoogleCloudPlatform/php-docs-samples/tree/master/appengine/flexible/drupal8
 * https://www.rainbowbreeze.it/how-to-setup-a-google-app-engine-python-environment-on-mac-osx-using-homebrew/
