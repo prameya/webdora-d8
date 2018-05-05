@@ -167,6 +167,11 @@ composer update -v
 
 Now you should have a Drupal install showing up on [http://localhost/](http://localhost/ "localhost") (depending on your configuration).
 
+Deploy your app to Google App Engine:
+```sh
+gcloud app deploy --verbosity=info
+```
+
 ## Deployment notes
 
 ```
