@@ -1,4 +1,6 @@
-# For app webdora-d8
+# For drupal8-on-appengine
+# https://github.com/webdora/drupal8-on-appengine
+#
 runtime: php
 env: flex
 threadsafe: true
@@ -8,6 +10,7 @@ runtime_config:
   front_controller_file: index.php
 
 # GCE App Engine settings
+# change these as needed
 automatic_scaling:
   min_num_instances: 1
   max_num_instances: 4
@@ -30,7 +33,7 @@ env_variables:
   MYSQL_PORT: 3306
   MYSQL_USER: database-user
   MYSQL_HOST: your-db-host-or-ip
-  MYSQL_DSN: mysql:dbname=database-name;unix_socket=/cloudsql/project-name:zone-info:database-name    
+  MYSQL_DSN: mysql:dbname=database-name;unix_socket=/cloudsql/project-name:zone-info:database-name
 
 # skip internal files (logs,OS,etc)
 skip_files:
